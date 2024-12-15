@@ -1,0 +1,25 @@
+The following CSS code snippet demonstrates an issue with unexpected behavior when using the `:hover` pseudo-class within a nested element structure.  The inner element's hover style is unexpectedly affecting the outer element.
+
+```css
+.outer {
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.inner {
+  background-color: lightcoral;
+  padding: 10px;
+}
+
+.outer:hover .inner {
+  background-color: lightgreen; /*This should only affect the inner element on hover*/
+}
+
+.inner:hover {
+  background-color: yellow; /*This works as expected*/
+}
+```
+
+The issue is that hovering over `.inner` will change the background color of `.outer` to lightgreen, which is not the intended behavior. Only `.inner`'s background should change to yellow on hover; `.outer` should remain lightblue unless explicitly hovered over.
+
+This is an uncommon error because it relies on a specific nesting and the interplay between parent and child selectors. It often stems from misunderstanding CSS specificity and how the cascade operates. 

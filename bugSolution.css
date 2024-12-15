@@ -1,0 +1,23 @@
+The solution involves using more specific selectors to avoid the unintended style changes to the parent element.
+
+```css
+.outer {
+  background-color: lightblue;
+  padding: 20px;
+}
+
+.inner {
+  background-color: lightcoral;
+  padding: 10px;
+}
+
+.outer:hover {
+  background-color: lightgreen; /*This will only change .outer color on hover*/
+}
+
+.inner:hover {
+  background-color: yellow; /*This works as expected*/
+}
+```
+
+By separating the hover styles for `.outer` and `.inner`, we prevent the unintended cascade effect. Now, only the element being hovered over will change style as intended.
